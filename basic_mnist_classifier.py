@@ -33,8 +33,6 @@ def mnist_loss(predictions, targets):
   predictions = predictions.sigmoid()
   return torch.where(targets == 1, 1-predictions, predictions).mean()
 
-def init_params(size, std=1.0): return (torch.randn(size)*std).requires_grad_()
-
 def batch_accuracy(xb,yb):
   preds = xb.sigmoid()
   correct = (preds>0.5) == yb
